@@ -1,0 +1,35 @@
+.d-flex {
+
+
+    margin-left: 15vw;
+}
+
+.router-link-active {
+    font-size: 20px;
+}
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: rgb(0, 87, 34, 1) !important;
+}
+
+.navbar-brand {
+    color: aliceblue;
+}
+
+.nav-link {
+    color: white;
+}
+
+.navbar {
+    width: auto;
+}
+
+.navbar-toggler {
+    background-color: aliceblue;
+    color: white;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: space-between;
+}

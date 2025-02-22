@@ -1,0 +1,11 @@
+<div class="modal" [ngClass]="{ show: isVisible }" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Agregar al carrito</h2>
+    <p *ngIf="product">
+      ¿Cuántas unidades de {{ product.title }} quieres agregar?
+    </p>
+    <input type="number" [(ngModel)]="quantity" min="1" />
+    <button (click)="onAddToCart()">Agregar</button>
+    <button (click)="onClose()">Cancelar</button>
+  </div>
+</div>

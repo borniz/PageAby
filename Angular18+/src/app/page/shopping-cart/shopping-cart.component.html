@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Carrito de Compras</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="table-items-id">#</th>
+        <th class="table-items-img">Imagen</th>
+        <th class="table-items-name">Nombre</th>
+        <th class="table-item-description">Descripción</th>
+        <th class="table-items-quanty">Cantidad</th>
+        <th class="table-items-price">Precio Unitario</th>
+        <th class="table-items-total">Valor Total</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of apiservices; index as i">
+        <th scope="row">{{ item.id }}</th>
+        <td class="table-items-img">
+          <img src="{{ item.image }}" alt="Imagen del producto" width="60px" height="80px" />
+        </td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.base_price | currency }}</td>
+        <td>{{ item.quantity * item.base_price | currency }}</td>
+        <td>
+          <button (click)="deleteItemCart(item.id)" class="btn-shoppingDelete">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5Da53yOGNjPvAG2A2wxUX5nPiqxGCEUyYZg&s"
+              alt="Eliminar" width="20px" height="20px" />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table-totalprice">
+    <th>Total:</th>
+    <td>{{ getTotal() | currency }}</td>
+  </div>
+</div>
