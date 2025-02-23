@@ -28,7 +28,7 @@ import jakarta.transaction.Transactional;
 
 @RestController
 @RequestMapping("/product")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://abytool-ol42tjgvu-yarod-bonillas-projects.vercel.app")
 public class ProductController {
     private final ProductService productService;
     @Autowired
