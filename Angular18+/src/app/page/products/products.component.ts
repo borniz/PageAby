@@ -34,7 +34,9 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this._apiService.getAllProducts().subscribe((products) => {
       this.productList = products.sort((a, b) => a.name.localeCompare(b.name));
+      alert("los Datos Mostando son" + products)
     });
+
   }
 
   openeditModal(product: IProduct) {
