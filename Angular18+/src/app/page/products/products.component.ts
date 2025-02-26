@@ -1,4 +1,4 @@
-import { CurrencyPipe, isPlatformBrowser } from '@angular/common';
+import { CommonModule, CurrencyPipe, isPlatformBrowser } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -19,16 +19,19 @@ import { ProductService } from '../../service/product.service';
 import { QuantityModalComponent } from '../addtocart/addtocart.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { log } from 'console';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-products',
   standalone: true,
   imports: [
+    CommonModule,
     CurrencyPipe,
     QuantityModalComponent,
     RouterLink,
     MatPaginatorModule,
     MatIconModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',

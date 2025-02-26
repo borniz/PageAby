@@ -3,8 +3,38 @@
     justify-content: center;
     width: 100%;
 }
+.spinner{
+    position: absolute;
+    z-index: 1000;
+    top: 50vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: antiquewhite;
+}
+.custom-spinner {
+    --mdc-circular-progress-active-indicator-color: #198754;  
+  }
+  .txtloading{
+    background: linear-gradient(45deg,#105837,blue);
+    background-clip: text;
+    color: transparent;
+    background-size: 400%,400%;
+    animation:  loading 2s ease infinite;
 
-.formContainer {
+  }
+  @keyframes loading {
+    0% {
+      background-position: 0%;
+    }
+    
+    100% {
+      background-position: 100%;
+    }
+  }
+  .formContainer {
     display: flex;
     flex-direction: column;
 }

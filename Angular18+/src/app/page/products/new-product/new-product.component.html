@@ -1,65 +1,85 @@
-<div class="fomrContainer">
-
-
-    <div class="titleContainer">
-
-        <h3>Añade un Nuevo Producto</h3>
+<div *ngIf="isLoading" class="spinner">
+  <mat-spinner class="custom-spinner"></mat-spinner>
+  <p class="txtloading">Guardando ... Producto</p>
+</div>
+<div class="fomrContainer" *ngIf="!isLoading">
+  <div class="titleContainer">
+    <h3>Añade un Nuevo Producto</h3>
+  </div>
+  <form [formGroup]="products" class="formProduct" (ngSubmit)="save()">
+    <div class="nameimgContainer">
+      <mat-form-field appearance="fill" class="fullWidth" id="name">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          placeholder="Nombre Producto"
+          formControlName="name"
+          required
+        />
+        @if(products.get('name')?.hasError('required')){
+        <mat-error>El Nombre es requerido</mat-error>
+        }
+      </mat-form-field>
+      <img class="imagePreview" [src]="imagePreview" *ngIf="imagePreview" />
     </div>
-    <form [formGroup]="products" class="formProduct" (ngSubmit)="save()">
 
-        <div class="nameimgContainer">
-            <mat-form-field appearance="fill" class="fullWidth" id="name">
-                <mat-label>Nombre</mat-label>
-                <input matInput placeholder="Nombre Producto" formControlName="name" required>
-                @if(products.get('name')?.hasError('required')){
-                <mat-error>El Nombre es requerido</mat-error>
-                }
-            </mat-form-field>
-            <img class="imagePreview" [src]="imagePreview" *ngIf="imagePreview">
-        </div>
+    <div class="descSelectContainer">
+      <mat-form-field appearance="fill" class="fullWidth">
+        <mat-label>Descripción</mat-label>
+        <input
+          matInput
+          type="text-area"
+          placeholder="Descripción del Producto"
+          formControlName="description"
+          required
+        />
+        @if(products.get('description')?.hasError('required')){
+        <mat-error>La Descripción es requerida</mat-error>
+        }
+      </mat-form-field>
+      <input class="selectFile" type="file" (change)="onFileSelect($event)" />
+    </div>
 
-        <div class="descSelectContainer">
-            <mat-form-field appearance="fill" class="fullWidth">
-                <mat-label>Descripción</mat-label>
-                <input matInput type="text-area" placeholder="Descripción del Producto" formControlName="description"
-                    required>
-                @if(products.get('description')?.hasError('required')){
-                <mat-error>La Descripción es requerida</mat-error>
-                }
-            </mat-form-field>
-            <input class="selectFile" type="file" (change)="onFileSelect($event)">
-        </div>
+    <div class="row">
+      <mat-form-field appearance="fill" class="quantityInput">
+        <mat-label>Cantidad</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Cantidad"
+          formControlName="stock"
+          required
+        />
+        @if(products.get('stock')?.hasError('required')){
+        <mat-error>La Cantidad es Requerida</mat-error>
+        }
+      </mat-form-field>
+    </div>
 
-        <div class="row">
-            <mat-form-field appearance="fill" class="quantityInput">
-                <mat-label>Cantidad</mat-label>
-                <input matInput type="number" placeholder="Cantidad" formControlName="stock" required />
-                @if(products.get('stock')?.hasError('required')){
-                <mat-error>La Cantidad es Requerida</mat-error>
-                }
-            </mat-form-field>
-        </div>
+    <div class="row">
+      <mat-form-field appearance="fill" class="preciBaseInput">
+        <mat-label>Precio Base</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Precio Base"
+          formControlName="base_price"
+          required
+        />
+        @if(products.get('base_price')?.hasError('required')){
+        <mat-error>El Precio Base es Requerido</mat-error>
+        }
+      </mat-form-field>
+    </div>
 
-        <div class="row">
-            <mat-form-field appearance="fill" class="preciBaseInput">
-                <mat-label>Precio Base</mat-label>
-                <input matInput type="number" placeholder="Precio Base" formControlName="base_price" required />
-                @if(products.get('base_price')?.hasError('required')){
-                <mat-error>El Precio Base es Requerido</mat-error>
-                }
-            </mat-form-field>
-        </div>
-
-
-        <div>
-            @if (products.invalid) {
-            <mat-error>Falta Llenar un Campo</mat-error>
-            } @else {
-            <button type="submit" mat-fab>
-                <mat-icon>save</mat-icon>
-            </button>
-            }
-        </div>
-
-    </form>
+    <div>
+      @if (products.invalid) {
+      <mat-error>Falta Llenar un Campo</mat-error>
+      } @else {
+      <button type="submit" mat-fab>
+        <mat-icon>save</mat-icon>
+      </button>
+      }
+    </div>
+  </form>
 </div>

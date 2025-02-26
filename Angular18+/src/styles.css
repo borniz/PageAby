@@ -12,6 +12,9 @@ body {
     background-color: rgb(249, 250, 250);
 }
 
+.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: url(#gradientSpinner) !important;
+  }
 html,
 body {
     height: 100%;

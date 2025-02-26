@@ -5,7 +5,9 @@
   </a>
 </div>
 <h1>HERRAMIENTAS MANUALES</h1>
-
+<div *ngIf="loading" class="loadingProducts">
+  <mat-spinner></mat-spinner>
+</div>
 <div class="ContainerCars">
   @for (product of products; track $index) {
   <div class="card" style="width: 15rem">
@@ -50,8 +52,10 @@
       </div>
     </div>
   </div>
-
   }
+  <div *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
 </div>
 
 <app-addtocart

@@ -6,7 +6,11 @@ body {
     padding: 0;
 }
 
-
+.loadingProducts{
+    position: absolute;
+    top: 12rem;
+    left:50vw;
+}
 .navbar {
     position: sticky;
     top: 0;
