@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+body {
+    font-family: "Goudy Bookletter 1911", serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar {
+    position: sticky;
+    top: 0;
+}
+
+/* Contenedor de Tarjetas */
+.ContainerCars {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-items: center;
+    gap: 1em;
+    padding: 1rem;
+
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+    height: 32vh;
+    width: 1vw;
+    
+}
+
+/* desing cars container */
+.containerCard-title {
+    height: 6vh;
+}
+
+.containerCard-category {
+    height: 4vh;
+    margin: 0;
+}
+
+.containerCard-desc {
+
+    margin-bottom: 1px;
+    height: 6vh;
+}
+
+.containerCard-invt {
+    margin-top: 1px;
+    height: 4vh;
+}
+
+.containerCardPreci-base {
+    margin-top: 1px;
+    height: 4vh;
+}
+
+.containerCardbtn {
+    position: relative;
+    top: 10vh;
+    margin-top: 1px;
+    height: 7vh;
+}
+
+/* label card category preciBase inventario */
+#categoriaP {
+    font-size: .8rem;
+}
+
+#inventarioP {
+    font-size: 1rem;
+    display: contents;
+    align-content: space-around;
+}
+
+/* Imagen del Producto */
+.imgProduct {
+    width: auto;
+    max-width: 250px;
+    height: 250px;
+    object-fit: contain;
+    overflow: hidden;
+    mix-blend-mode: multiply;
+    background-color: transparent;
+}
+
+/* Tarjeta */
+.card-body {
+    text-align: center;
+    align-items: center;
+    color: white;
+
+
+}
+
+/* Título de la tarjeta */
+.card-title {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    padding-left: 1.5rem;
+    font-weight: bold;
+}
+
+
+/* Tipografía General */
+h1,
+.TableContainer,
+.BackColor-Table,
+.productTitle,
+tbody,
+.idProducts,
+.productDescription {
+    font-family: "Playfair Display", serif;
+}
+
+/* Encabezado Principal */
+h1 {
+    font-size: 3rem;
+    width: auto;
+    object-fit: contain;
+    overflow: hidden;
+    text-align: center;
+    margin: 1em 0;
+}
+
+h5 {
+    line-height: 1;
+}
+
+/* Tabla Responsiva */
+.TableContainer {
+    margin: 0 1em;
+    overflow-x: auto;
+}
+
+.BackColor-Table {
+    background-color: transparent;
+    text-align: center;
+    color: black;
+    font-size: 1.3em;
+}
+
+/* Diseño de Filas */
+.productTitle,
+.productDescription {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.productDescription {
+    text-align: left;
+    border-right: 2px solid black;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+/* Botón Agregar Producto */
+.newProduct {
+    width: 4vw;
+    height: 1vh;
+    position: fixed;
+    top: 15vh;
+    z-index: 1000;
+    right: 0;
+
+
+}
+
+
+.txtNewProduct {
+    opacity: 0;
+    font-size: 12px;
+    color: green;
+}
+
+.newProduct:hover {
+    width: 12rem;
+}
+
+.newProduct:hover .txtNewProduct {
+    opacity: 1;
+}
+
+/* Animaciones de la Tarjeta */
+.card-body {
+    position: absolute;
+    top: 1.5vh;
+    left: .3vw;
+    height: 30vh;
+    width: 17vw;
+
+    max-width: 15vw;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    transition: ease-in-out 0.5s;
+    border-radius: 20px;
+    background-color: rgba(0, 87, 34, 1);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card:hover .card-body {
+    opacity: .9;
+}
+
+.iconContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1vw 0 1vw;
+}
+
+/* Iconos de Edición */
+.editIcon {
+
+    color: rgb(0, 87, 34, 1);
+    background-color: white;
+    border-radius: 10px;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.editIcon:hover {
+    border: 1px solid white;
+    background-color: rgb(4, 4, 202);
+    color: white;
+}
+
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .ContainerCars {
+        grid-template-columns: repeat(auto-fit, minmax(180px));
+    }
+
+    .card-body {
+        height: auto;
+        width: 90%;
+    }
+
+    .imgProduct {
+        max-width: 200px;
+    }
+
+    .BackColor-Table {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .ContainerCars {
+        grid-template-columns: repeat(auto-fit, minmax(150px, .5fr));
+
+    }
+
+    .card {
+        margin-left: 1vw;
+    }
+
+    .card-body {
+        height: auto;
+        width: 100%;
+        font-size: 0.9em;
+    }
+
+    .productTitle,
+    .productDescription {
+        font-size: 0.9em;
+    }
+
+    .BackColor-Table {
+        font-size: 1em;
+    }
+
+    .newProduct {
+        top: 5vh;
+        right: 2vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .ContainerCars {
+        grid-template-columns: repeat(100px, 200px);
+
+    }
+
+
+
+    .newProduct {
+        position: relative;
+        left: 15vw;
+        top: 10vh;
+    }
+    
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1vh 4vw 0 1vw;
+       
+
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 30vh;
+        width: 100%;
+        margin-left: 10vw;
+        margin-top: 0;
+        max-width: 40vw;
+        font-size: 0.8em;
+
+    }
+
+    .imgProduct {
+        max-width: 180px;
+    }
+
+    .productTitle,
+    .productDescription {
+        font-size: 0.8em;
+    }
+
+    .BackColor-Table {
+        font-size: 0.9em;
+    }
+
+    .newProduct {
+        top: 4vh;
+        right: 3vw;
+    }
+
+    #precioBaseP,
+    #inventarioP {
+        margin: 0;
+        padding: 0;
+    }
+}

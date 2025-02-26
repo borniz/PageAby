@@ -1,0 +1,109 @@
+/* Estilos generales */
+body {
+    font-family: "Goudy Bookletter 1911", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Contenedor principal */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Tabla */
+  .table {
+    width: 90%; /* Ancho responsivo */
+    border-collapse: collapse;
+    margin: 1rem 0;
+  }
+  
+  /* Estilo de celdas */
+  thead th {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  tbody td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Botón de eliminar */
+  .btn-shoppingDelete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  /* Imágenes */
+  .table-items-img img {
+    object-fit: contain;
+    display: block;
+    margin: auto;
+  }
+  
+  /* Contenedor del total */
+  .table-totalprice {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #e2e2cc;
+    font-weight: bold;
+  }
+  
+
+  @media (max-width: 768px) {
+    .table {
+      width: 100%;
+    }
+  
+    thead {
+      display: none;
+    }
+  
+    tbody tr {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+  
+    tbody td {
+      text-align: left;
+      padding: 5px;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .table-totalprice {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .table {
+      width: 85%; 
+    }
+  
+    .table-totalprice {
+      width: 85%;
+    }
+  }
+  

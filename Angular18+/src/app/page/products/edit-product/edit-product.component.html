@@ -1,0 +1,54 @@
+<div class="titleEdit">
+
+    <h2>Editar Producto</h2>
+</div>
+
+<form [formGroup]="productForm" (ngSubmit)="save()">
+    <div class="nameimgContainer">
+        <mat-form-field appearance="fill" class="fullWidth" id="name">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre Producto" formControlName="name" required>
+            @if(productForm.get('name')?.hasError('required')){
+            <mat-error>El Nombre es requerido</mat-error>
+            }
+        </mat-form-field>
+        <img class="imagePreview" [src]="imagePreview" *ngIf="imagePreview">
+    </div>
+
+    <div class="descSelectContainer">
+        <mat-form-field appearance="fill" class="fullWidth">
+            <mat-label>Descripción</mat-label>
+            <input matInput type="text-area" placeholder="Descripción del Producto" formControlName="description"
+                required>
+            @if(productForm.get('description')?.hasError('required')){
+            <mat-error>La Descripción es requerida</mat-error>
+            }
+        </mat-form-field>
+        <input class="selectFile" type="file" (change)="onFileSelect($event)">
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="fill" class="quantityInput">
+            <mat-label>Cantidad</mat-label>
+            <input matInput type="number" placeholder="Cantidad" formControlName="stock" required />
+            @if(productForm.get('stock')?.hasError('required')){
+            <mat-error>La Cantidad es Requerida</mat-error>
+            }
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="fill" class="preciBaseInput">
+            <mat-label>Precio Base</mat-label>
+            <input matInput type="number" placeholder="Precio Base" formControlName="base_price" required />
+            @if(productForm.get('base_price')?.hasError('required')){
+            <mat-error>El Precio Base es Requerido</mat-error>
+            }
+        </mat-form-field>
+    </div>
+
+    <div class="button-container">
+        <button type="button" mat-button (click)="dialogRef.close()">Cancelar</button>
+        <button type="submit" mat-flat-button color="primary" (click)="save()">Guardar</button>
+    </div>
+</form>

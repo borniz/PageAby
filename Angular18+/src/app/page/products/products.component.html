@@ -1,0 +1,63 @@
+<div class="newProduct">
+  <a routerLink="/newproduct" class="newProducticon">
+    <i class="bi bi-file-earmark-plus fs-2 c" style="color: green"></i>
+    <h5 class="txtNewProduct">Crear un Nuevo Producto</h5>
+  </a>
+</div>
+<h1>HERRAMIENTAS MANUALES</h1>
+
+<div class="ContainerCars">
+  @for (product of products; track $index) {
+  <div class="card" style="width: 15rem">
+    <img
+      class="imgProduct"
+      src="{{ product.image }}"
+      class="{{ product.name }}"
+      alt="..."
+    />
+    <div class="card-body">
+      <div class="iconContainer">
+        <span class="editIcon">
+          <a (click)="openeditModal(product)">
+            <mat-icon> edit_document </mat-icon>
+          </a>
+        </span>
+        <span class="deletIcon">
+          <a (click)="delet(product)">
+            <mat-icon> delete_document </mat-icon>
+          </a>
+        </span>
+      </div>
+      <div class="containerCard-title">
+        <h5 class="card-title">{{ product.name }}</h5>
+      </div>
+      <div class="containerCard-category">
+        <p id="categoriaP">Categoria: {{ product.category }}</p>
+      </div>
+      <div class="containerCard-desc">
+        <p class="card-text">{{ product.description }}.</p>
+      </div>
+      <div class="containerCard-invt">
+        <p id="inventarioP">Inventatio: {{ product.stock }}</p>
+      </div>
+      <div class="containerCardPreci_base">
+        <p id="precioBaseP">Precio Base: {{ product.base_price }}</p>
+      </div>
+      <div class="containerbtn">
+        <a (click)="openModal(product)" id="btncars" class="btn btn-primary"
+          >Agregar al carrito</a
+        >
+      </div>
+    </div>
+  </div>
+
+  }
+</div>
+
+<app-addtocart
+  [isVisible]="showModal"
+  [product]="selectedProduct"
+  (close)="closeModal()"
+  (addToCart)="addToCart($event)"
+>
+</app-addtocart>
