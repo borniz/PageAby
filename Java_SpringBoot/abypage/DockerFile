@@ -7,7 +7,7 @@ WORKDIR /app
 # Copiar el archivo .jar generado en la carpeta target/
 COPY target/*.jar app.jar
 
-# Exponer el puerto en el que se ejecutará el backend
+
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación
