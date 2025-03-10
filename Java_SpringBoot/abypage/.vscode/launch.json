@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AbypageApplication<abypage>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.abypage.abypage.AbypageApplication",
+            "projectName": "abypage",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
