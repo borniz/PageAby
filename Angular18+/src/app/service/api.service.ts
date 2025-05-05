@@ -3,11 +3,12 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-  private _http = inject(HttpClient)
-  private urlBase: string = 'https://localhost:4200/products'
+  private _http = inject(HttpClient);
+  private urlBase: string =
+    'https://striking-barely-anteater.ngrok-free.app/products';
 
   getAllProducts(): Observable<any> {
     return this._http.get<any[]>(this.urlBase);
