@@ -8,7 +8,7 @@ import { IProduct } from '../model/product';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = `http://localhost:8080/product`;
+  private apiUrl = `${environment.apiUrl}/product`;
   private headers = new HttpHeaders({ 'ngrok-skip-browser-warning': 'true' });
   constructor(private http: HttpClient) {}
 

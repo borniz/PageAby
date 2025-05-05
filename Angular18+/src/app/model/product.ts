@@ -4,6 +4,6 @@ export interface IProduct {
   description: string;
   category: string;
   stock: number;
-  base_price: number; // Asegúrate de que esta propiedad está definida
+  base_price: number;
   image: string;
 }
