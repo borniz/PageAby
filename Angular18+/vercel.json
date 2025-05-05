@@ -2,8 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/aby-page/**",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "npm run build",
+        "outputDirectory": "dist/aby-page"
+      }
     }
   ],
   "rewrites": [
