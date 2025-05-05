@@ -1,18 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "angular.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "dist/aby-page"
-            }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/index.html"
-        }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/aby-page/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
