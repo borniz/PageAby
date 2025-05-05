@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{W as i,gb as r}from"./chunk-GABHGFU6.mjs";var o=class e{cartItems=r([]);shoppingCartActive=r(!1);setCartActive(t){this.shoppingCartActive.set(t)}addProductToCart(t){let a=[...this.cartItems(),t];this.cartItems.set(a)}getCartItems(){return this.cartItems()}static \u0275fac=function(a){return new(a||e)};static \u0275prov=i({token:e,factory:e.\u0275fac,providedIn:"root"})};export{o as a};
