@@ -39,7 +39,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class ProductsComponent implements OnInit {
   productList: any[] = [];
   products: IProduct[] = [];
-  page = 1;
+  page = 0;
   limit = 10;
   loading = false;
   allProductsLoaded = false;
