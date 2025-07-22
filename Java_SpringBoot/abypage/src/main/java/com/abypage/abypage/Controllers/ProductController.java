@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.abypage.abypage.Models.IProduct;
+import com.abypage.abypage.Models.Product;
 import com.abypage.abypage.Repository.ProductRepository;
 import com.abypage.abypage.Service.CloudinaryService;
 import com.abypage.abypage.Service.ProductService;
@@ -45,29 +45,29 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<IProduct>> FindAllProducts() {
+    public ResponseEntity<List<Product>> FindAllProducts() {
         return productService.findAllProduct();
     }
 
     @GetMapping("/page")
-    public ResponseEntity<Page<IProduct>> getAllProductsPage(
+    public ResponseEntity<Page<Product>> getAllProductsPage(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
 
         Pageable pageable = PageRequest.of(page, size);
-        Page<IProduct> products = productRepository.findAll(pageable);
-
+        Page<Product> products = productRepository.findAllOrderByNameIgnoreCase(pageable);
+        System.err.println(products);
         return ResponseEntity.ok(products);
     }
 
     @GetMapping("/{id}")
-    private ResponseEntity<IProduct> findProductById(@PathVariable UUID id) {
+    private ResponseEntity<Product> findProductById(@PathVariable UUID id) {
         return productService.FindProductbyId(id).map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<IProduct> createProduct(@RequestBody IProduct product) {
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         try {
 
             return productService.createProduct(product);
@@ -77,7 +77,7 @@ public class ProductController {
     }
 
     @PostMapping("/{id}/upload-image")
-    public ResponseEntity<IProduct> uploadImage(@PathVariable UUID id, @RequestParam("image") MultipartFile image) {
+    public ResponseEntity<Product> uploadImage(@PathVariable UUID id, @RequestParam("image") MultipartFile image) {
         try {
             String imageUrl = cloudinaryService.uploadImage(image);
 
@@ -100,7 +100,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity<IProduct> updateProduct(@PathVariable UUID id, @RequestBody IProduct updatedProduct) {
+    public ResponseEntity<Product> updateProduct(@PathVariable UUID id, @RequestBody Product updatedProduct) {
         return productRepository.findById(id).map(product -> {
             product.setName(updatedProduct.getName());
             product.setDescription(updatedProduct.getDescription());
@@ -111,7 +111,7 @@ public class ProductController {
 
                 product.setCustomPrices(updatedProduct.getCustomPrices());
             }
-            IProduct updateProduct = productRepository.save(product);
+            Product updateProduct = productRepository.save(product);
             return ResponseEntity.ok(updateProduct);
 
         }).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());

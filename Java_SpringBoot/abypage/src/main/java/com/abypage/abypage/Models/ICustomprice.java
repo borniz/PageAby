@@ -29,7 +29,7 @@ public class ICustomprice implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
     @JsonBackReference
-    private IProduct product;
+    private Product product;
     @Column(nullable = false)
     private BigDecimal specialPrice;
 

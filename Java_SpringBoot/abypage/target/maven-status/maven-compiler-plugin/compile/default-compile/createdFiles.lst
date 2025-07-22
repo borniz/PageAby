@@ -17,6 +17,6 @@ com\abypage\abypage\config\CloudinaryConfig.class
 com\abypage\abypage\Repository\UsersRepository.class
 com\abypage\abypage\Controllers\ProductController.class
 com\abypage\abypage\Models\IDetailOrden.class
-com\abypage\abypage\Models\IProduct.class
+com\abypage\abypage\Models\Product.class
 com\abypage\abypage\Service\CloudinaryService.class
 com\abypage\abypage\Repository\PurchaseOrdenRepository.class

@@ -26,7 +26,7 @@ public class IDetailOrden implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
-    private IProduct product;
+    private Product product;
     @Column(nullable = false)
     private int amount;
     @Column(nullable = false)

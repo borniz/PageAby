@@ -8,9 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.abypage.abypage.Models.IProduct;
+import com.abypage.abypage.Models.Product;
 import com.abypage.abypage.Repository.ProductRepository;
 
 @Service
@@ -19,9 +18,9 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public ResponseEntity<List<IProduct>> findAllProduct() {
+    public ResponseEntity<List<Product>> findAllProduct() {
         try {
-            List<IProduct> products = productRepository.findAll();
+            List<Product> products = productRepository.findAll();
 
             if (products.isEmpty()) {
                 return ResponseEntity.noContent().build();
@@ -33,11 +32,11 @@ public class ProductService {
         }
     }
 
-    public Optional<IProduct> FindProductbyId(UUID id) {
+    public Optional<Product> FindProductbyId(UUID id) {
         return this.productRepository.findById(id);
     }
 
-    public ResponseEntity<IProduct> createProduct(IProduct product) {
+    public ResponseEntity<Product> createProduct(Product product) {
         try {
             product = this.productRepository.save(product);
             return ResponseEntity.ok(product);
@@ -47,7 +46,7 @@ public class ProductService {
 
     }
 
-    public ResponseEntity<IProduct> uploadImage(String imageurl, UUID id) {
+    public ResponseEntity<Product> uploadImage(String imageurl, UUID id) {
         try {
 
             return this.productRepository.findById(id).map(product -> {
