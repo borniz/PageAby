@@ -5,6 +5,9 @@ body {
     padding: 0;
     box-sizing: border-box;
   }
+  th{
+    text-align: center;
+  }
   
   /* Contenedor principal */
   .container {

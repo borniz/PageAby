@@ -1,11 +1,12 @@
 import { CurrencyPipe, isPlatformBrowser, NgFor } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { IShopping } from '../../model/shopping';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [CurrencyPipe, NgFor],
+  imports: [CurrencyPipe,FormsModule, NgFor],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.css',
 })
@@ -46,7 +47,11 @@ export class ShoppingCartComponent {
 
     return Array.from(itemMap.values());
   }
-
+updateCart() {
+  if (isPlatformBrowser(this.platformId)) {
+    localStorage.setItem('cart', JSON.stringify(this.apiservices));
+  }
+}
   /**
    * Agrega un producto al carrito. Si ya existe, le suma la cantidad.
    */

@@ -15,15 +15,17 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of apiservices; index as i">
-        <th scope="row">{{ item.id }}</th>
+        <th scope="row">{{ i+1 }}</th>
         <td class="table-items-img">
           <img src="{{ item.image }}" alt="Imagen del producto" width="60px" height="80px" />
         </td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.description }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.base_price | currency }}</td>
-        <td>{{ item.quantity * item.base_price | currency }}</td>
+        <td>Nombre: {{ item.name }}</td>
+        <td>Descripcion: {{ item.description }}</td>
+        <td>Cantidad:
+  <input type="number" [(ngModel)]="item.quantity" (change)="updateCart()" min="1" style="width: 60px;" />
+</td>
+        <td>Precio Unidad: {{ item.base_price | currency }}</td>
+        <td>Total Articulo: {{ item.quantity * item.base_price | currency }}</td>
         <td>
           <button (click)="deleteItemCart(item.id)" class="btn-shoppingDelete">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5Da53yOGNjPvAG2A2wxUX5nPiqxGCEUyYZg&s"
